@@ -1,0 +1,47 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+#container{
+    width: 100%;
+    min-height: 100vh;
+    display: block;
+    align-items: center;
+    justify-content: center;
+}
+#gallery{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 10px;
+    cursor: pointer;
+}
+img{
+    width: 300px;
+    height: 300px;
+}
+
+#popOut{
+    display:none;
+    background-color:transparent;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding-left: 600px;
+    padding-top: 100px;
+}
+p{
+    padding: 30px;
+    position:absolute;
+    top:0;
+    right: 0;
+    color:black;
+    text-align: right;
+    cursor: pointer;
+    font-weight: bold;
+}
+p:hover{
+    color:red;
+}

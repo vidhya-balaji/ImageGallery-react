@@ -1,28 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import "./components/style.css";
-import GalleryImage from './components/GalleryImage.js';
-import ZoomView from './components/ZoomView.js';
-const container = document.getElementById('container')
-const gallery = document.getElementById('gallery')
-const allimg = document.querySelectorAll("#gallery img")
-const popout = document.getElementById("popOut")
-const zoomimg1 = document.getElementById("zoomimg")
+import imageList from './components/imageList.js';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
-
-function ZoomImage() {
-    allimg.forEach((value) => {
-        console.log(value.src);
-        value.addEventListener("click", function () {
-            container.style.display = 'none';
-            popout.style.display = 'block';
-            zoomimg1.src=value.src;
-        })
-    })
+function Gallery(props) {
+    return (
+        <div id="list-of-images">
+            <img alt='img' src={props.imagesrc}></img>
+            <h3>{props.kname}</h3></div>)
 }
-root.render(<>
-<GalleryImage></GalleryImage>
-<ZoomView></ZoomView>
-</>);
+
+root.render(
+    <>
+        <div id="container">
+            <div id="gallery">
+                {
+                    imageList.map(function (isrc, index) {
+                        return (<Gallery imagesrc={isrc.imgsrc} kname={imageList[index].name}></Gallery>)
+                    })
+                }
+
+            </div>
+        </div>
+    </>);
 

@@ -6,20 +6,64 @@ import baby5 from "../Images/baby5.jpg"
 import baby6 from "../Images/baby6.jpg"
 import baby8 from "../Images/baby8.jpg"
 import baby9 from "../Images/baby9.jpg"
+import "./style.css"
+import ZoomView from "./ZoomView"
 
+const imageList = [
+    {
+        imgsrc: baby1,
+        name: "Emi Nina"
+    },
+
+    {
+        imgsrc: baby2, name: "Avira Nina"
+
+    },
+
+    {
+        imgsrc: baby3, name: "Avini Nina"
+
+    },
+
+    {
+        imgsrc: baby4, name: "Marvan Ori"
+
+    },
+
+    {
+        imgsrc: baby5, name: "Viyan Varman"
+
+    },
+
+    {
+        imgsrc: baby6, name: "Vidiyal"
+
+    },
+    {
+        imgsrc: baby8, name: "Magizhini"
+
+    },
+    {
+        imgsrc: baby9, name: "Yazhini"
+
+    },
+
+]
 function GalleryImage() {
     return (
         <div id="container">
-            <div id="gallery">
-                <img src={baby1} alt="image"></img>
-                <img src={baby2} alt="image"></img>
-                <img src={baby3} alt="image"></img>
-                <img src={baby4} alt="image"></img>
-                <img src={baby5} alt="image"></img>
-                <img src={baby6} alt="image"></img>
-                <img src={baby8} alt="image"></img>
-                <img src={baby9} alt="image"></img>
+            <div id="gallery">{
+                imageList.map((isrc, index) => {
+                    console.log("Gallery :" + isrc.imgsrc);
+
+                    return (
+                        <div id="list-of-images">
+                            <img alt='img' src={isrc.imgsrc} onClick={(e) => ZoomView(isrc.imgsrc, e)}></img>
+                            <h3>{imageList[index].name}</h3>
+                        </div>)
+                })
+            }
             </div>
         </div>);
 }
-export default GalleryImage
+export default GalleryImage;
